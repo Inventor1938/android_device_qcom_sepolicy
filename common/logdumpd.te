@@ -31,7 +31,11 @@ type logdumpd_exec, exec_type, file_type;
 init_daemon_domain(logdumpd)
 
 # To set ctl property
-unix_socket_connect(logdumpd, property, init)
+
+# deprecated: unix_socket_connect(logdumpd, property, init) 
+# Please use set_prop(logdumpd, <property name>) instead.
+# unix_socket_connect(logdumpd, property, init);
+
 allow logdumpd ctl_default_prop:property_service set;
 
 userdebug_or_eng(`
